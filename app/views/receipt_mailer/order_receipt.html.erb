@@ -4,7 +4,22 @@
     <meta content='text/html; charset=UTF-8' http-equiv='Content-Type'/>
   </head>
   <body>
-    <h1><%= @user.first_name %> <%= @user.last_name %></h1>
-    <p>Here is your shipment of fail</p>
+    <p>Congratulations, <%= @user.first_name %> <%= @user.last_name %></p>
+    <p>Here are the items you ordered:</p>
+
+    <table>
+      <thead>
+        <tr>
+          <th colspan="2">Product</th>
+          <th>Unit Price</th>
+          <th>Quantity</th>
+          <th>Price</th>
+        </tr>
+      </thead>
+      <% @order_total = 0 %>
+      <% @cart.each do |product_id, details| %>
+        <%= render 'item', product_id: product_id, details: details %>
+      <% end %>
+    </table>
   </body>
 </html>
