@@ -2,8 +2,7 @@ class OrdersController < ApplicationController
 
   def show
     @order = Order.find(params[:id])
-    @cart = cart
-    empty_cart!
+    @cart = { '13' => { quantity: 1 }, '10' => { quantity: 23 }, '3' => { quantity: 309 } }
   end
 
   def create
@@ -11,7 +10,7 @@ class OrdersController < ApplicationController
     order  = create_order(charge)
 
     if order.valid?
-      #empty_cart!
+      empty_cart!
       redirect_to order, notice: 'Your Order has been placed.'
     else
       redirect_to cart_path, error: order.errors.full_messages.first
