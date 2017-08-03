@@ -2,7 +2,15 @@ class OrdersController < ApplicationController
 
   def show
     @order = Order.find(params[:id])
-    @cart = { '13' => { quantity: 1 }, '10' => { quantity: 23 }, '3' => { quantity: 309 } }
+
+    # Populate @orderList with a list of products associated with @order
+    # The format of @orderList is the same as that of cart
+    items = LineItem.where(order_id: @order.id)
+    @orderList = {}
+
+    items.each do |item|
+      @orderList[item.product_id.to_s] = { quantity: item.quantity }
+    end
   end
 
   def create

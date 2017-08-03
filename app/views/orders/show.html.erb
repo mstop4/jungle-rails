@@ -19,8 +19,8 @@
         </tr>
       </thead>
       <tbody>
-        <% @cart_total = 0 %>
-        <% cart.each do |product_id, details| %>
+        <% @order_total = 0 %>
+        <% @orderList.each do |product_id, details| %>
           <%= render 'item', product_id: product_id, details: details %>
         <% end %>
       </tbody>
@@ -30,7 +30,7 @@
             TOTAL:
           </th>
           <th>
-            <%= @cart_total %>
+            <%= @order_total %>
           </th>
         </tr>
       </tfoot>
