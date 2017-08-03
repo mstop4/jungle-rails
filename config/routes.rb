@@ -25,6 +25,10 @@ Rails.application.routes.draw do
   get '/signup' => 'users#new'
   post '/users' => 'users#create'
 
+  if Rails.env.development?
+    mount LetterOpenerWeb::Engine, at: "/letter_opener"
+  end
+
   #resources :users, only: [:new, :create]
 
   # The priority is based upon order of creation: first created -> highest priority.
