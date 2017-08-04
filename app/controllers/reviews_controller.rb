@@ -8,21 +8,21 @@ class ReviewsController < ApplicationController
     @review.user_id = current_user.id
 
     if @review.save
-      redirect_back fallback_location: "/", notice: "Review Posted"
+      redirect_to product_path(params[:product_id]), notice: "Review Posted"
     else
-      redirect_back fallback_location: "/", notice: "Review Failed"
+      redirect_to product_path(params[:product_id]), notice: "Review Failed"
     end
   end
 
   def destroy
     @review = Review.find params[:id]
     @review.destroy
-    redirect_back fallback_location: "/", notice: "Review Deleted"
+    redirect_to product_path(params[:product_id]), notice: "Review Deleted"
   end
 
   private
     def login_required
-      redirect_back fallback_location: "/", notice: "Logged out" if current_user == nil
+      redirect_to product_path(params[:product_id]), notice: "Not logged in" if current_user == nil
     end
 
     def review_params
