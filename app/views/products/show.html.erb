@@ -22,6 +22,11 @@
           <dd><%= @product.quantity %></dd>
           <dt>Price</dt>
           <dd><%= @product.price %></dd>
+        </dl>
+      </div>
+
+      <div class="col-sm-8">
+        <dl class="dl-horizontal">
           <dt>Reviews</dt>
           <dd>
             <% @reviews.each do |review| %>
@@ -32,6 +37,19 @@
           </dd>
         </dl>
       </div>
+
+      <% if current_user != nil %>
+        <div>
+          <%= form_for [@product, Review.new] do |form| %>
+            <%= form.label :description %>
+            <%= form.text_field :description %><br/>
+            <%= form.label :rating %>
+            <%= form.select :rating, [['*****', 5], ['****', 4], ['***', 3], ['**', 2], ['*', 1]] %><br/>
+            <%= form.submit "Post" %>
+          <% end %>
+        </div>
+      <% end %>
+
     </div>
 
   </article>
