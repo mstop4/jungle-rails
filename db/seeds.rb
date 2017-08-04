@@ -29,14 +29,14 @@ usr1 = User.create({
   first_name: "Fritz",
   last_name: "Schnackenpfefferhausen",
   email: "mein@bratwurst.com",
-  password_digest: "fritz"
+  password: "fritz"
 })
 
 usr2 = User.create({
   first_name: "Bender Bending",
   last_name: "Rodriguez",
   email: "bender@benderisgreat.com",
-  password_digest: "bender"
+  password: "bender"
 })
 
 ## CATEGORIES
@@ -158,12 +158,14 @@ Review.destroy_all
 
 prd1.reviews.create!({
   product_id: prd1.id,
+  user_id: usr2.id,
   description: 'My back hurts...',
   rating: 2
 })
 
 prd2.reviews.create!({
   product_id: prd2.id,
+  user_id: usr1.id,
   description: 'Toasty',
   rating: 5
 })
@@ -177,6 +179,7 @@ prd2.reviews.create!({
 
 prd3.reviews.create!({
   product_id: prd3.id,
+  user_id: usr1.id,
   description: 'Does it come in blue?',
   rating: 3
 })

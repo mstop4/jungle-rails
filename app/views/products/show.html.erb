@@ -32,12 +32,11 @@
           <dd>
             <% @reviews.each do |review| %>
               <% user = User.find_by(id: review.user_id) %>
-              <% if user != nil %>
-                <p><%= "#{rateSym} " * review.rating %><br/><%= user.first_name %> <%= user.last_name %></p>
-              <% else %>
-                <p><%= "#{rateSym} " * review.rating %><br/>Unnamed</p>
-              <% end %>
+              <p><%= "#{rateSym} " * review.rating %><br/><%= user.first_name %> <%= user.last_name %></p>
               <p><%= review.description %></p>
+              <% if current_user != nil && user.id == current_user.id %>
+                <button> DELET THIS </button>
+              <% end %>
             <% end %>
           </dd>
         </dl>
