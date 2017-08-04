@@ -5,7 +5,7 @@ class OrdersController < ApplicationController
 
     # Populate @orderList with a list of products associated with @order
     # The format of @orderList is the same as that of cart
-    items = LineItem.where(order_id: @order.id)
+    items = @order.line_items
     @orderList = {}
 
     items.each do |item|
