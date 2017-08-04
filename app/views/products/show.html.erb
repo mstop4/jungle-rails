@@ -24,9 +24,10 @@
           <dd><%= @product.price %></dd>
           <dt>Reviews</dt>
           <dd>
-            <p>Posted by: <%= @users[0].first_name %></p>
-            <p><%= @reviews[0].description %></p>
-            <p>Rating: <%= @reviews[0].rating %></p>
+            <% @reviews.each do |review| %>
+              <p><%= review.description %></p>
+              <p>Rating: <%= review.rating %></p>
+            <% end %>
           </dd>
         </dl>
       </div>
