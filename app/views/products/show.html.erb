@@ -26,6 +26,7 @@
           <dd>
             <% @reviews.each do |review| %>
               <p><%= review.description %></p>
+              <p>Posted by: <%= review.user_id %> </p>
               <p>Rating: <%= review.rating %></p>
             <% end %>
           </dd>

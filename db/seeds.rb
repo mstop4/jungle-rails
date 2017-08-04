@@ -21,6 +21,24 @@ end
 
 # Let's do this ...
 
+## USERS
+
+puts "Finding or Creating Users ..."
+
+usr1 = User.create({
+  first_name: "Fritz",
+  last_name: "Schnackenpfefferhausen",
+  email: "mein@bratwurst.com",
+  password_digest: "fritz"
+})
+
+usr2 = User.create({
+  first_name: "Bender Bending",
+  last_name: "Rodriguez",
+  email: "bender@benderisgreat.com",
+  password_digest: "bender"
+})
+
 ## CATEGORIES
 
 puts "Finding or Creating Categories ..."
@@ -152,6 +170,7 @@ prd2.reviews.create!({
 
 prd2.reviews.create!({
   product_id: prd2.id,
+  user_id: usr1.id,
   description: 'Delet this',
   rating: 1
 })
@@ -164,6 +183,7 @@ prd3.reviews.create!({
 
 prd3.reviews.create!({
   product_id: prd3.id,
+  user_id: usr2.id,
   description: '7/10 too many books',
   rating: 3
 })
