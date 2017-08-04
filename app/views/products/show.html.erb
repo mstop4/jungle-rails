@@ -22,6 +22,12 @@
           <dd><%= @product.quantity %></dd>
           <dt>Price</dt>
           <dd><%= @product.price %></dd>
+          <dt>Reviews</dt>
+          <dd>
+            <p>Posted by: <%= @users[0].first_name %></p>
+            <p><%= @reviews[0].description %></p>
+            <p>Rating: <%= @reviews[0].rating %></p>
+          </dd>
         </dl>
       </div>
     </div>
