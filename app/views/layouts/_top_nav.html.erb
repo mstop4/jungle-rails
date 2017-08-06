@@ -8,14 +8,6 @@
         <span class="icon-bar"></span>
       </button>
       <a class="navbar-brand" href="/">Jungle</a>
-
-      <!-- Username -->
-      <% if current_user %>
-        Hello, <%= current_user.first_name %>! | <%= link_to "Logout", '/logout' %>
-      <% else %>
-        <%= link_to 'Login', '/login' %> | <%= link_to 'Signup', '/signup' %>
-      <% end %>
-
     </div>
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
@@ -52,6 +44,13 @@
             <%= fa_icon "shopping-cart" %> My Cart (<%= cart.size %>)
           <% end %>
         </li>
+        <% if current_user %>
+          <li><a>Hello, <%= current_user.first_name %>!</a></li>
+          <li><%= link_to "Logout", '/logout' %></li>
+        <% else %>
+          <li><%= link_to 'Login', '/login' %></li>
+          <li><%= link_to 'Signup', '/signup' %></li>
+        <% end %>
       </ul>
     </div>
   </div>
