@@ -1,0 +1,10 @@
+<% user = User.find_by(id: review.user_id) %>
+
+<dt><%= "#{rateSym} " * review.rating %> - <%= user.first_name %> <%= user.last_name %></dt>
+<dd>
+  <%= review.description %><br/>
+  <% if current_user != nil && user.id == current_user.id %>
+    <%= link_to fa_icon('trash'), product_review_path(@product.id, review.id), class: 'btn btn-sm btn-danger', method: :delete, data: { confirm: "Are you sure?" } %>
+  <% end %>
+  <br/>
+</dd>

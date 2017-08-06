@@ -1,0 +1,8 @@
+<h2>Review this product</h2>
+<%= form_for [product, Review.new] do |form| %>
+  <%= form.label :description %>
+  <%= form.text_field :description %><br/>
+  <%= form.label :rating %>
+  <%= form.select :rating, [[rateSym * 5, 5], [rateSym * 4, 4], [rateSym * 3, 3], [rateSym * 2, 2], [rateSym, 1]] %><br/>
+  <%= form.submit "Post" %>
+<% end %>
