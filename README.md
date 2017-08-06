@@ -2,6 +2,11 @@
 
 A mini e-commerce application built with Rails 4.2 for purposes of teaching Rails by example.
 
+## Screenshots
+
+!["Index"](https://github.com/mstop4/jungle-rails/blob/master/doc/index.png)
+!["Detail"](https://github.com/mstop4/jungle-rails/blob/master/doc/detail.png)
+!["Stripe"](https://github.com/mstop4/jungle-rails/blob/master/doc/pay.png)
 
 ## Setup
 
@@ -14,6 +19,10 @@ A mini e-commerce application built with Rails 4.2 for purposes of teaching Rail
 7. Sign up for a Stripe account
 8. Put Stripe (test) keys into appropriate .env vars
 9. Run `bin/rails s -b 0.0.0.0` to start the server
+
+## Note
+
+Email receipts are sent via `letter-opener-web` in the development environment. They can be accessed from `localhost:3000/letter-opener`.
 
 ## Stripe Testing
 
