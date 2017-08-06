@@ -4,6 +4,15 @@
       <%= image_tag product.image.thumb, alt: product.name %>
       <h4><%= product.name %></h4>
     <% end %>
+    <p>
+      <% rateSym = "\u{1F334}" %>
+      <% if ratings[product.id][:average] != nil %>
+        <%= rateSym * ratings[product.id][:average] %>
+      <% else %>
+        No ratings
+      <% end %>
+      &nbsp;(<%= ratings[product.id][:number] %>)
+    </p>
   </header>
   <p class="description">
     <%= product.description %>
