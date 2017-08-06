@@ -14,6 +14,11 @@
 
       <div class="col-sm-8">
         <dl class="dl-horizontal">
+
+          <% if flash[:notice] %>
+            <h1><%= flash[:notice] %></h1>
+          <% end %>
+
           <dt>Name</dt>
           <dd><%= @product.name %></dd>
           <dt>Description</dt>
@@ -24,6 +29,36 @@
           <dd><%= @product.price %></dd>
         </dl>
       </div>
+
+      <div class="col-sm-8">
+        <dl class="dl-horizontal">
+          <% rateSym = "\u{1F334}" %>
+          <dt>Reviews</dt>
+          <dd>
+            <% @reviews.each do |review| %>
+              <% user = User.find_by(id: review.user_id) %>
+              <p><%= "#{rateSym} " * review.rating %><br/><%= user.first_name %> <%= user.last_name %></p>
+              <p><%= review.description %></p>
+              <% if current_user != nil && user.id == current_user.id %>
+                <%= link_to fa_icon('trash'), product_review_path(@product.id, review.id), class: 'btn btn-sm btn-danger', method: :delete, data: { confirm: "Are you sure?" } %>
+              <% end %>
+            <% end %>
+          </dd>
+        </dl>
+      </div>
+
+      <% if current_user != nil %>
+        <div>
+          <%= form_for [@product, Review.new] do |form| %>
+            <%= form.label :description %>
+            <%= form.text_field :description %><br/>
+            <%= form.label :rating %>
+            <%= form.select :rating, [[rateSym * 5, 5], [rateSym * 4, 4], [rateSym * 3, 3], [rateSym * 2, 2], [rateSym, 1]] %><br/>
+            <%= form.submit "Post" %>
+          <% end %>
+        </div>
+      <% end %>
+
     </div>
 
   </article>

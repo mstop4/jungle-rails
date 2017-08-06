@@ -21,6 +21,24 @@ end
 
 # Let's do this ...
 
+## USERS
+
+puts "Finding or Creating Users ..."
+
+usr1 = User.create({
+  first_name: "Fritz",
+  last_name: "Schnackenpfefferhausen",
+  email: "mein@bratwurst.com",
+  password: "fritz"
+})
+
+usr2 = User.create({
+  first_name: "Bender Bending",
+  last_name: "Rodriguez",
+  email: "bender@benderisgreat.com",
+  password: "bender"
+})
+
 ## CATEGORIES
 
 puts "Finding or Creating Categories ..."
@@ -108,7 +126,7 @@ cat2.products.create!({
   price: 2_026.29
 })
 
-cat3.products.create!({
+prd1 = cat3.products.create!({
   name:  'Optimal Sleeping Bed',
   description: Faker::Hipster.paragraph(4),
   image: open_asset('furniture1.jpg'),
@@ -116,7 +134,7 @@ cat3.products.create!({
   price: 3_052.00
 })
 
-cat3.products.create!({
+prd2 = cat3.products.create!({
   name:  'Electric Chair',
   description: Faker::Hipster.paragraph(4),
   image: open_asset('furniture2.jpg'),
@@ -124,7 +142,7 @@ cat3.products.create!({
   price: 987.65
 })
 
-cat3.products.create!({
+prd3 = cat3.products.create!({
   name:  'Red Bookshelf',
   description: Faker::Hipster.paragraph(4),
   image: open_asset('furniture3.jpg'),
@@ -132,5 +150,45 @@ cat3.products.create!({
   price: 2_483.75
 })
 
+## REVIEWS
+
+puts "Re-creating Reviews ..."
+
+Review.destroy_all
+
+prd1.reviews.create!({
+  product_id: prd1.id,
+  user_id: usr2.id,
+  description: 'My back hurts...',
+  rating: 2
+})
+
+prd2.reviews.create!({
+  product_id: prd2.id,
+  user_id: usr1.id,
+  description: 'Toasty',
+  rating: 5
+})
+
+prd2.reviews.create!({
+  product_id: prd2.id,
+  user_id: usr1.id,
+  description: 'Delet this',
+  rating: 1
+})
+
+prd3.reviews.create!({
+  product_id: prd3.id,
+  user_id: usr1.id,
+  description: 'Does it come in blue?',
+  rating: 3
+})
+
+prd3.reviews.create!({
+  product_id: prd3.id,
+  user_id: usr2.id,
+  description: '7/10 too many books',
+  rating: 3
+})
 
 puts "DONE!"
