@@ -20,6 +20,7 @@ class SessionsController < ApplicationController
   private
 
   def authenticate_with_credentials(email, password)
+    clean_email = email.downcase.strip
     if user = User.find_by_email(email)
       return user.authenticate(password)
     else
