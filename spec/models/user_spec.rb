@@ -102,18 +102,52 @@ RSpec.describe User, type: :model do
     before(:all) do
       @account = User.new(
         first_name: "Homer",
-        last_name: "Homer",
-        email: "my@bologna.com",
-        password: "smrt",
-        password_confirmation: "smrt"
+        last_name: "Thompson",
+        email: "homer@terrorlake.com",
+        password: "hello",
+        password_confirmation: "hello"
         )
-      @account.save!
+      @account.save
     end
 
     it "should log in fine" do
-      @user = authenticate_with_credentials("my@bologna.com", "smrt")
+      @user = User.authenticate_with_credentials("homer@terrorlake.com", "hello")
+      expect(@user).to_not be_nil
+    end
 
-      expect(@user).to_not be nil, "Oops, you broke it"
+    it "is the wrong password, should be invalid" do
+      @user = User.authenticate_with_credentials("homer@terrorlake.com", "I think he's talking to you")
+      expect(@user).to be_nil
+    end
+
+    it "is the wrong email, should be invalid" do
+      @user = User.authenticate_with_credentials("gustheloveablechimneysweep@wesminster.com", "hello")
+      expect(@user).to be_nil
+    end
+
+    it "email is in all caps, should be valid" do
+      @user = User.authenticate_with_credentials("HOMER@TERRORLAKE.COM", "hello")
+      expect(@user).to_not be_nil
+    end
+
+    it "email has weird casing, should be valid" do
+      @user = User.authenticate_with_credentials("hOmEr@TeRrOrLaKe.CoM", "hello")
+      expect(@user).to_not be_nil
+    end
+
+    it "email has leading spaces, should be valid" do
+      @user = User.authenticate_with_credentials("     homer@terrorlake.com", "hello")
+      expect(@user).to_not be_nil
+    end
+
+    it "email has trailing spaces, should be valid" do
+      @user = User.authenticate_with_credentials("homer@terrorlake.com       ", "hello")
+      expect(@user).to_not be_nil
+    end
+
+    it "email has leading and trailing spaces, should be valid" do
+      @user = User.authenticate_with_credentials("     homer@terrorlake.com          ", "hello")
+      expect(@user).to_not be_nil
     end
   end
 end
