@@ -25,18 +25,20 @@ end
 
 puts "Finding or Creating Users ..."
 
-usr1 = User.create({
+usr1 = User.create!({
   first_name: "Fritz",
   last_name: "Schnackenpfefferhausen",
   email: "mein@bratwurst.com",
-  password: "fritz"
+  password: "fritz",
+  password_confirmation: "fritz"
 })
 
-usr2 = User.create({
+usr2 = User.create!({
   first_name: "Bender Bending",
   last_name: "Rodriguez",
   email: "bender@benderisgreat.com",
-  password: "bender"
+  password: "bender",
+  password_confirmation: "bender"
 })
 
 ## CATEGORIES
