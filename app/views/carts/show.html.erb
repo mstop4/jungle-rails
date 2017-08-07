@@ -34,34 +34,36 @@
       </table>
     </div>
 
-    <div class="row">
-      <div class="col-xs-12">
-        <%= form_tag orders_path do %>
-          <script
-            src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-            data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
-            data-amount="<%= @cart_total * 100 %>"
-            data-name="Jungle"
+    <% if current_user != nil %>
+      <div class="row">
+        <div class="col-xs-12">
+          <%= form_tag orders_path do %>
+            <script
+              src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+              data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+              data-amount="<%= @cart_total * 100 %>"
+              data-name="Jungle"
 
-            <% if @user %>
-              data-description="<%= @user.first_name %> <%= @user.last_name %>'s Jungle Order"
-            <% else %>
-              data-description="Guest's Jungle Order"
-            <% end %>
+              <% if @user %>
+                data-description="<%= @user.first_name %> <%= @user.last_name %>'s Jungle Order"
+              <% else %>
+                data-description="Guest's Jungle Order"
+              <% end %>
 
-            data-locale="auto"
+              data-locale="auto"
 
-            <% if @user %>
-              data-email="<%= @user.email %>"
-            <% else %>
-              data-email="No email"
-            <% end %>
+              <% if @user %>
+                data-email="<%= @user.email %>"
+              <% else %>
+                data-email="No email"
+              <% end %>
 
-            data-currency="cad">
-          </script>
-        <% end %>
+              data-currency="cad">
+            </script>
+          <% end %>
+        </div>
       </div>
-    </div>
+    <% end %>
 
   <% else %>
     <div class="order-summary jumbotron">
