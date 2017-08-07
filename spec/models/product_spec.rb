@@ -13,7 +13,7 @@ RSpec.describe Product, type: :model do
         category: @category
         )
 
-      expect(@product.valid?).to be_true, @product.errors.full_messages.to_sentence
+      expect(@product.valid?).to be(true), @product.errors.full_messages.to_sentence
     end
 
     it 'is missing a name and should be invalid' do
@@ -24,7 +24,7 @@ RSpec.describe Product, type: :model do
         category: @category
         )
 
-      expect(@product.valid?).to be_true, @product.errors.full_messages.to_sentence
+      expect(@product.valid?).to be(true), @product.errors.full_messages.to_sentence
     end
 
     it 'is missing the price and should be invalid' do
@@ -35,7 +35,7 @@ RSpec.describe Product, type: :model do
         category: @category
         )
 
-      expect(@product.valid?).to be_true, @product.errors.full_messages.to_sentence
+      expect(@product.valid?).to be(true), @product.errors.full_messages.to_sentence
     end
 
     it 'is missing a quantity and should be invalid' do
@@ -46,7 +46,7 @@ RSpec.describe Product, type: :model do
         category: @category
         )
 
-      expect(@product.valid?).to be_true, @product.errors.full_messages.to_sentence
+      expect(@product.valid?).to be(true), @product.errors.full_messages.to_sentence
     end
 
     it 'is missing a category and should be invalid' do
@@ -56,7 +56,7 @@ RSpec.describe Product, type: :model do
         quantity: 2,
         )
 
-      expect(@product.valid?).to be_true, @product.errors.full_messages.to_sentence
+      expect(@product.valid?).to be(true), @product.errors.full_messages.to_sentence
     end
   end
 end
