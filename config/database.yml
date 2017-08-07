@@ -84,7 +84,7 @@ production:
   <<: *default
   url: <%= ENV['DATABASE_URL'] %>
 
-  adapter: postgresql
-  host: localhost
-  username: user
-  database: app-dev
+  # adapter: postgresql
+  # host: localhost
+  # username: user
+  # database: app-dev
