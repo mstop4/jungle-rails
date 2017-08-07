@@ -103,7 +103,7 @@ RSpec.describe User, type: :model do
       @account = User.new(
         first_name: "Homer",
         last_name: "Thompson",
-        email: "homer@terrorlake.com",
+        email: "HOMER@terrorlake.com",
         password: "hello",
         password_confirmation: "hello"
         )
