@@ -10,7 +10,7 @@
 /tmp
 
 # Ignore carrier wave uploads for development
-/public/uploads/product/image/*
+/public/uploads/product/image/
 
 # Ignore db creds / settings
 # /config/database.yml
