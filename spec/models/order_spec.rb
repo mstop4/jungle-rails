@@ -66,7 +66,7 @@ describe 'After creation' do
     # pending test 2
     it 'does not deduct quantity from products that are not in the order' do
       # TODO: Implement based on hints in previous test
-# 1. initialize order with necessary fields (see orders_controllers, schema and model definition for what is required)
+      # 1. initialize order with necessary fields (see orders_controllers, schema and model definition for what is required)
       @order = Order.new(
         total_cents: 0,
         stripe_charge_id: "ch_1AoKKhAxhn4GLds7Fi43w1jm",
