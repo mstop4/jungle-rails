@@ -8,6 +8,10 @@ A mini e-commerce application built with Rails 4.2 for purposes of teaching Rail
 !["Detail"](https://github.com/mstop4/jungle-rails/blob/master/doc/detail.png)
 !["Stripe"](https://github.com/mstop4/jungle-rails/blob/master/doc/pay.png)
 
+## Demo
+
+https://stormy-beach-54350.herokuapp.com/
+
 ## Setup
 
 1. Fork & Clone
