@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.feature "Visitor looks at a product", type: :feature, js: true do
+RSpec.feature "AddToCart", type: :feature, js: true do
   # SETUP
   before :each do
     @category = Category.create! name: 'Apparel'
@@ -19,12 +19,12 @@ RSpec.feature "Visitor looks at a product", type: :feature, js: true do
   scenario "They see the details of a product" do
     # ACT
     visit root_path
-    find_link("Details »", href: "/products/5").click
+    find_link(href: "/cart/add_item?product_id=5").click
 
     # DEBUG
     save_screenshot
 
     # VERIFY
-    expect(page).to have_css '.products-show'
+    expect(page).to have_text "My Cart (1)"
   end
 end
