@@ -1,5 +1,11 @@
 <section class="admin-products-index">
 
+  <% if flash[:notice] %>
+    <div class="alert alert-info">
+      <strong><%= flash[:notice] %></strong>
+    </div>
+  <% end %>
+
   <header class="page-header">
     <h1>Admin &raquo; All Products</h1>
   </header>
