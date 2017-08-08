@@ -21,10 +21,10 @@ RSpec.feature "AddToCart", type: :feature, js: true do
     visit root_path
     find_link(href: "/cart/add_item?product_id=5").click
 
-    # DEBUG
-    save_screenshot
-
     # VERIFY
     expect(page).to have_text "My Cart (1)"
+
+    # DEBUG
+    save_screenshot
   end
 end

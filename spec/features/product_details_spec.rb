@@ -21,10 +21,10 @@ RSpec.feature "Visitor looks at a product", type: :feature, js: true do
     visit root_path
     find_link("Details »", href: "/products/5").click
 
-    # DEBUG
-    save_screenshot
-
     # VERIFY
     expect(page).to have_css '.products-show'
+
+    # DEBUG
+    save_screenshot
   end
 end

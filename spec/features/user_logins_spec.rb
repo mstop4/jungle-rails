@@ -21,11 +21,11 @@ RSpec.feature "UserLogins", type: :feature, js: true do
     fill_in "password", with: "fritz"
     find_button("Submit").click
 
-    # DEBUG
-    save_screenshot
-
     # VERIFY
     expect(page).to have_text "Hello, Fritz!"
+
+    # DEBUG
+    save_screenshot
   end
 
 end
