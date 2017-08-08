@@ -11,4 +11,9 @@ class Product < ActiveRecord::Base
   validates :quantity, presence: true
   validates :category, presence: true
 
+  def refresh(amount)
+    self.quantity += amount
+    self.save
+  end
+
 end

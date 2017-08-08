@@ -19,6 +19,9 @@ class OrdersController < ApplicationController
 
     if order.valid?
       ReceiptMailer.order_receipt(current_user, cart, order).deliver_now
+      order.line_items.each do |item|
+        item.product.refresh(-item.quantity)
+      end
       empty_cart!
       redirect_to order, notice: 'Your Order has been placed.'
     else
