@@ -12,6 +12,10 @@ A mini e-commerce application built with Rails 4.2 for purposes of teaching Rail
 
 https://stormy-beach-54350.herokuapp.com/
 
+### Known Issues
+
+* Images are only stored temporarily.
+
 ## Setup
 
 1. Fork & Clone
