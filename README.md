@@ -10,7 +10,7 @@ A mini e-commerce application built with Rails 4.2 for purposes of teaching Rail
 
 ## Demo
 
-https://mstop4.herokuapp.com/
+https://mstop4-jungle.herokuapp.com/
 
 ### Known Issues
 
