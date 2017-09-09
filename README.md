@@ -8,10 +8,6 @@ A mini e-commerce application built with Rails 4.2 for purposes of teaching Rail
 !["Detail"](https://github.com/mstop4/jungle-rails/blob/master/doc/detail.png)
 !["Stripe"](https://github.com/mstop4/jungle-rails/blob/master/doc/pay.png)
 
-## Demo
-
-https://mstop4-jungle.herokuapp.com/
-
 ### Known Issues
 
 * Images are only stored temporarily in demo.
