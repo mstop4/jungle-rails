@@ -22,3 +22,4 @@ Use Credit Card # 4111 1111 1111 1111 for testing. More information: <https://st
 * Rails 4.2
 * PostgreSQL 9.x
 * Stripe
+* Bootstrap
