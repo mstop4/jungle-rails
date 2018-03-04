@@ -37,8 +37,8 @@ usr2 = User.create!({
   first_name: "Bob",
   last_name: "Bobson",
   email: "bob@bobson.com",
-  password: "bob",
-  password_confirmation: "bob"
+  password: "bobbob",
+  password_confirmation: "bobbob"
 })
 
 ## CATEGORIES
