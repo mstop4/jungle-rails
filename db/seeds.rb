@@ -26,19 +26,19 @@ end
 puts "Finding or Creating Users ..."
 
 usr1 = User.create!({
-  first_name: "Fritz",
-  last_name: "Schnackenpfefferhausen",
-  email: "mein@bratwurst.com",
-  password: "fritz",
-  password_confirmation: "fritz"
+  first_name: "Alice",
+  last_name: "Allison",
+  email: "alice@allison.com",
+  password: "alice",
+  password_confirmation: "alice"
 })
 
 usr2 = User.create!({
-  first_name: "Bender Bending",
-  last_name: "Rodriguez",
-  email: "bender@benderisgreat.com",
-  password: "bender",
-  password_confirmation: "bender"
+  first_name: "Bob",
+  last_name: "Bobson",
+  email: "bob@bobson.com",
+  password: "bob",
+  password_confirmation: "bob"
 })
 
 ## CATEGORIES
