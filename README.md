@@ -2,6 +2,8 @@
 
 A mini e-commerce application built with Rails 4.2.
 
+**Demo:** https://mstop4-jungle.herokuapp.com/
+
 ## Screenshots
 
 !["Index"](https://github.com/mstop4/jungle-rails/blob/master/doc/index.png)
