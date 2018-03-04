@@ -1,6 +1,6 @@
 # Jungle
 
-A mini e-commerce application built with Rails 4.2 for purposes of teaching Rails by example.
+A mini e-commerce application built with Rails 4.2.
 
 ## Screenshots
 
@@ -8,9 +8,9 @@ A mini e-commerce application built with Rails 4.2 for purposes of teaching Rail
 !["Detail"](https://github.com/mstop4/jungle-rails/blob/master/doc/detail.png)
 !["Stripe"](https://github.com/mstop4/jungle-rails/blob/master/doc/pay.png)
 
-## Demo
+### Known Issues
 
-https://stormy-beach-54350.herokuapp.com/
+* Images are only stored temporarily in demo.
 
 ## Setup
 
